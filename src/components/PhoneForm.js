@@ -14,7 +14,12 @@ export default class PhoneForm extends Component {
     }
 
     handleSubmit = (e) =>{
-       e.preventDfault()
+       e.preventDefault();
+       this.props.onCreate(this.state)
+       this.setState({
+           name:'',
+           phone:''
+       })
     }
 
     render() {
@@ -24,9 +29,9 @@ export default class PhoneForm extends Component {
                 <br />
                 <input name='phone' placeholder='전화번호' onChange={this.handleChange} value={this.state.phone} />
                 
-                <div>
+                {/* <div>
                     {this.state.name}                    {this.state.phone}
-                </div>
+                </div> */}
 
                 <button type='submit'>등록</button>
             </form>
