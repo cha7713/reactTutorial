@@ -15,7 +15,7 @@ export default class PhoneInfoList extends Component {
                 key={info.id} />))
         return (
             <div>
-                {list}
+                {list}   
             </div>
         )
     }
