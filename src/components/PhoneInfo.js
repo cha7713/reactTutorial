@@ -54,9 +54,10 @@ export default class PhoneInfo extends Component {
             padding: '8px',
             margin: '8px'
         }
+        
 
         let { name, phone } = this.props.info
-        console.log(name)
+        console.log(name.indexOf(''))
         return (
             
             <div style={style}>

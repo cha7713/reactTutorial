@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export default class PhoneForm extends Component {
+    input=React.createRef();
     state = {
         name: '',
         phone: ''
@@ -13,22 +14,32 @@ export default class PhoneForm extends Component {
         })
     }
 
-    handleSubmit = (e) =>{
-       e.preventDefault();
-       this.props.onCreate(this.state)
-       this.setState({
-           name:'',
-           phone:''
-       })
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.onCreate(this.state)
+        this.setState({
+            name: '',
+            phone: ''
+        })
+        this.input.current.focus()
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input name='name' placeholder='이름' onChange={this.handleChange} value={this.state.name} />
+                <input
+                    name='name'
+                    placeholder='이름'
+                    onChange={this.handleChange}
+                    value={this.state.name}
+                    ref={this.input} />
                 <br />
-                <input name='phone' placeholder='전화번호' onChange={this.handleChange} value={this.state.phone} />
-                
+                <input
+                    name='phone'
+                    placeholder='전화번호'
+                    onChange={this.handleChange}
+                    value={this.state.phone} />
+
                 {/* <div>
                     {this.state.name}                    {this.state.phone}
                 </div> */}
